@@ -21,6 +21,7 @@ public class Guess_Number {
     public static void howManyNumbers() {
         int howMany;
         boolean y = true;
+        int lives = 5;
 
         int[] numbers = new int[howMany = scanner.nextInt()];
         if (howMany == 3) {
@@ -51,11 +52,13 @@ public class Guess_Number {
                 results[i] = checkNumber(i, guessingNumbers[i], numbers);
             }
             System.out.printf(Arrays.toString(guessingNumbers) + "\n");
+            lives--;
             System.out.println(Arrays.toString(results));
-            if (!isEnd(results)) {
+            if (isEnd(results) || lives==0) {
                 System.out.println("The game is over");
+                break;
             }
-            //break;
+            System.out.printf("Pozostało Ci %d prób !!!\n", lives);
         }
     }
 
