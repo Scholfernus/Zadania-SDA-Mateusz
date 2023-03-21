@@ -20,6 +20,8 @@ public class Guess_Number {
 
     public static void howManyNumbers() {
         int howMany;
+        boolean y = true;
+
         int[] numbers = new int[howMany = scanner.nextInt()];
         if (howMany == 3) {
             for (int i = 0; i < numbers.length; i++) {
@@ -38,21 +40,28 @@ public class Guess_Number {
 
         }
         System.out.println(Arrays.toString(numbers));
-        System.out.print("Guess randed numbers: -> ");
-        int[] guessingNumbers = new int[howMany];
-        for (int i = 0; i < guessingNumbers.length; i++) {
-            guessingNumbers[i] = scanner.nextInt();
+        while (y) {
+            System.out.print("Guess randed numbers: -> ");
+            int[] guessingNumbers = new int[howMany];
+            for (int i = 0; i < guessingNumbers.length; i++) {
+                guessingNumbers[i] = scanner.nextInt();
+            }
+            String[] results = new String[howMany];
+            for (int i = 0; i < howMany; i++) {
+                results[i] = checkNumber(i, guessingNumbers[i], numbers);
+            }
+            System.out.printf(Arrays.toString(guessingNumbers) + "\n");
+            System.out.println(Arrays.toString(results));
+            if (!isEnd(results)) {
+                System.out.println("The game is over");
+            }
+            //break;
         }
-        String[] results = new String[howMany];
-        for (int i = 0; i < howMany; i++) {
-            results[i] = checkNumber(i, guessingNumbers[i], numbers);
-        }
-        System.out.printf(Arrays.toString(guessingNumbers) + "\n");
     }
 
-    private static String checkNumber(int index, int given, int[] random) {
-        for (int i = 0; i < random.length; i++) {
-            if (given == random[i]) {
+    private static String checkNumber(int index, int given, int[] numbers) {
+        for (int i = 0; i < numbers.length; i++) {
+            if (given == numbers[i]) {
                 if (i == index) {
                     return "HOT";
                 } else {
@@ -62,6 +71,7 @@ public class Guess_Number {
         }
         return "COLD"; //jeśli nic się nie zgadza
     }
+
     private static boolean isEnd(String[] results) {
         for (String result : results) {
             if (!result.equals("HOT")) { //warunek boolean
