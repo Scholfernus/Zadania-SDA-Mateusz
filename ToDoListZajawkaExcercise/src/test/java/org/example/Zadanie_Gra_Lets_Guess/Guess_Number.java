@@ -12,12 +12,10 @@ public class Guess_Number {
 //        guessNumber();
 
     }
-
     public static void invitation() {
         System.out.println("Hello !.\nThis is a simple game. Guess the numbers. You have 5 chances.\nLet's go... " +
                 " Type how many numbers you want to guess: 3,4 or 5 ?");
     }
-
     public static void howManyNumbers() {
         int howMany;
         boolean y = true;
