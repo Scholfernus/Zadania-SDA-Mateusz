@@ -10,6 +10,7 @@ public class Guess_Word {
         invitation();
         howManyLetters();
     }
+
     public static void invitation() {
         System.out.println("Hello !.\nThis is a simple game. Guess the word. You have 10 chances.\nLet's go... " +
                 " Type how many letters you want to guess: 3,4 or 5 ?");
@@ -20,8 +21,8 @@ public class Guess_Word {
         boolean ok = true;
         int lives = 10;
         String[] words3 = {"Dad", "Mom", "Cat", "Dog", "Cow", "Sun", "Son", "Dom"};
-        String[]words4 = {"Back", " Bass", "Blue", "Aged", "Busy", "Once", "Save", "Feel", "Bank"};
-        String[]words5 = {"Adult", "Where", "Agree", "Error", "After", "Alone", "Brave", "Earth", "Faith"};
+        String[] words4 = {"Back", " Bass", "Blue", "Aged", "Busy", "Once", "Save", "Feel", "Bank"};
+        String[] words5 = {"Adult", "Where", "Agree", "Error", "After", "Alone", "Brave", "Earth", "Faith"};
         Random random = new Random();
         int index = random.nextInt(9);
 
@@ -31,32 +32,35 @@ public class Guess_Word {
                 letters[i] = "_ ";
                 System.out.print("_ ");
             }
-                System.out.print("\n"+words3[index]);
+            System.out.print("\n" + words3[index]);
 
         } else if (howManyLetters == 4) {
             for (int i = 0; i < letters.length; i++) {
                 letters[i] = "_ ";
                 System.out.print("_ ");
             }
-            System.out.print("\n"+words4[index]);
+            System.out.print("\n" + words4[index]);
         } else if (howManyLetters == 5) {
             for (int i = 0; i < letters.length; i++) {
                 letters[i] = "_ ";
                 System.out.print("_ ");
             }
-            System.out.print("\n"+words5[index]);
+            System.out.print("\n" + words5[index]);
+            char[] chars = words5[index].toCharArray();
+            System.out.println("\n" + Arrays.toString(chars));
         } else {
             System.out.println("You type incorrect number. Try again...");
         }
 //        System.out.println(Arrays.toString(letters));
-        while (ok) {
+        while (!ok) {
             System.out.print("\nGuess randed word: type a letter-> ");
             String guessWord = scanner.nextLine();
-            if (guessWord.equals(words3[index])){
+            if (guessWord.equals(words3[index])) {
                 System.out.println("You find a letter");
             }
-            if (words3[index].contains(guessWord)){
+            if (words3[index].contains(guessWord)) {
                 System.out.println();
+                System.out.println((words3[index]));
             }
 //            int[] guessingNumbers = new int[howManyLetters];
 //            for (int i = 0; i < guessingNumbers.length; i++) {
