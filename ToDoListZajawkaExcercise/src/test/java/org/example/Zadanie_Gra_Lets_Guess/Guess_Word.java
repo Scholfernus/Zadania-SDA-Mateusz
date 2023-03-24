@@ -24,7 +24,7 @@ public class Guess_Word {
         String[] words4 = {"Back", " Bass", "Blue", "Aged", "Busy", "Once", "Save", "Feel", "Bank"};
         String[] words5 = {"Adult", "Where", "Agree", "Error", "After", "Alone", "Brave", "Earth", "Faith"};
         Random random = new Random();
-        int index = random.nextInt(9);
+        int index = random.nextInt(8);
 
         String[] letters = new String[howManyLetters = scanner.nextInt()];
         if (howManyLetters == 3) {
@@ -32,7 +32,8 @@ public class Guess_Word {
                 letters[i] = "_ ";
                 System.out.print("_ ");
             }
-            System.out.print("\n" + words3[index]);
+            char[] chars = words3[index].toCharArray();
+//            System.out.print("\n" + words3[index]);
 
         } else if (howManyLetters == 4) {
             for (int i = 0; i < letters.length; i++) {
@@ -40,6 +41,8 @@ public class Guess_Word {
                 System.out.print("_ ");
             }
             System.out.print("\n" + words4[index]);
+            char[] chars = words4[index].toCharArray();
+
         } else if (howManyLetters == 5) {
             for (int i = 0; i < letters.length; i++) {
                 letters[i] = "_ ";
@@ -47,21 +50,26 @@ public class Guess_Word {
             }
             System.out.print("\n" + words5[index]);
             char[] chars = words5[index].toCharArray();
+
             System.out.println("\n" + Arrays.toString(chars));
-        } else {
-            System.out.println("You type incorrect number. Try again...");
         }
-//        System.out.println(Arrays.toString(letters));
-        while (!ok) {
-            System.out.print("\nGuess randed word: type a letter-> ");
+        System.out.print("\nGuess randed word: type a letter-> ");
+        while (ok) {
             String guessWord = scanner.nextLine();
             if (guessWord.equals(words3[index])) {
                 System.out.println("You find a letter");
             }
             if (words3[index].contains(guessWord)) {
-                System.out.println();
+
                 System.out.println((words3[index]));
+
+            } else {
+                System.out.println("You type incorrect letter. Try again...");
+
             }
+        }
+
+
 //            int[] guessingNumbers = new int[howManyLetters];
 //            for (int i = 0; i < guessingNumbers.length; i++) {
 //                guessingNumbers[i] = scanner.nextInt();
@@ -77,8 +85,7 @@ public class Guess_Word {
 //                System.out.println("The game is over");
 //                break;
 //            }
-//            System.out.printf("Pozostało Ci %d prób !!!\n", lives);
-        }
+//            System.out.printf("Pozostało Ci %d prób !!!\n", lives);     }
 //    }
 //    private static String checkNumber(int index, int given, int[] numbers) {
 //        for (int i = 0; i < numbers.length; i++) {
@@ -102,3 +109,4 @@ public class Guess_Word {
 //        return true;
     }
 }
+

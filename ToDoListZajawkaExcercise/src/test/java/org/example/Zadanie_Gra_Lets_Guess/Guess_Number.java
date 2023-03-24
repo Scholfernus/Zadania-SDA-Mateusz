@@ -12,29 +12,24 @@ public class Guess_Number {
 //        guessNumber();
 
     }
+
     public static void invitation() {
         System.out.println("Hello !.\nThis is a simple game. Guess the numbers. You have 5 chances.\nLet's go... " +
                 " Type how many numbers you want to guess: 3,4 or 5 ?");
     }
+
     public static void howManyNumbers() {
         int howMany;
         boolean y = true;
         int lives = 5;
 
         int[] numbers = new int[howMany = scanner.nextInt()];
-        if (howMany == 3) {
+        if (howMany>2 && howMany<5) {
             for (int i = 0; i < numbers.length; i++) {
                 numbers[i] = (int) (Math.random() * 10);
             }
-        } else if (howMany == 4) {
-            for (int i = 0; i < numbers.length; i++) {
-                numbers[i] = (int) (Math.random() * 10);
-            }
-        } else if (howMany == 5) {
-            for (int i = 0; i < numbers.length; i++) {
-                numbers[i] = (int) (Math.random() * 10);
-            }
-        } else {
+        }
+        else {
             System.out.println("You type incorrect number. Try again...");
 
         }
@@ -52,7 +47,7 @@ public class Guess_Number {
             System.out.printf(Arrays.toString(guessingNumbers) + "\n");
             lives--;
             System.out.println(Arrays.toString(results));
-            if (isEnd(results) || lives==0) {
+            if (isEnd(results) || lives == 0) {
                 System.out.println("The game is over");
                 break;
             }

@@ -6,9 +6,10 @@ public class Wisielec {
         System.out.println("      I");
         System.out.println("     /I");
         System.out.println("    / I");
-        System.out.println("   /  I");
+        System.out.println("      I");
         System.out.println("     /I");
         System.out.println("    / I");
         System.out.println("__________________");
+        System.out.println(" ");
     }
 }
