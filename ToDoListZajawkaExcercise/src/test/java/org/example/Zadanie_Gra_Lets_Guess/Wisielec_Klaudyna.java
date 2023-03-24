@@ -18,7 +18,6 @@ public class Wisielec_Klaudyna {
         System.out.println("To jest gra wisielec :)");
         System.out.println("Zgadnij wylosowane słowo");
         fill(arrTwo);
-//        print(arrTwo);
     }
 
     public static int random() {
@@ -32,12 +31,4 @@ public class Wisielec_Klaudyna {
             System.out.print(cha[i] + " ");
         }
     }
-//    public static void print(char[] cha) {
-//       {
-//           for (int i = 0; i < cha.length; i++) {
-//               System.out.print(cha[i]+" ");
-//           }
-//            System.out.print("\n"+ Arrays.toString(cha));
-//        }
-//    }
 }

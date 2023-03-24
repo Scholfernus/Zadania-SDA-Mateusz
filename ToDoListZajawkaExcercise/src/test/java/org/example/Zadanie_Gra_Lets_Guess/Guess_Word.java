@@ -9,6 +9,7 @@ public class Guess_Word {
     public static void main(String[] args) {
         invitation();
         howManyLetters();
+
     }
 
     public static void invitation() {
@@ -18,7 +19,7 @@ public class Guess_Word {
 
     public static void howManyLetters() {
         int howManyLetters;
-        boolean ok = true;
+        boolean ok = false;
         int lives = 10;
         String[] words3 = {"Dad", "Mom", "Cat", "Dog", "Cow", "Sun", "Son", "Dom"};
         String[] words4 = {"Back", " Bass", "Blue", "Aged", "Busy", "Once", "Save", "Feel", "Bank"};
@@ -27,12 +28,17 @@ public class Guess_Word {
         int index = random.nextInt(8);
 
         String[] letters = new String[howManyLetters = scanner.nextInt()];
+        ok = true;
         if (howManyLetters == 3) {
             for (int i = 0; i < letters.length; i++) {
                 letters[i] = "_ ";
                 System.out.print("_ ");
             }
             char[] chars = words3[index].toCharArray();
+            String guessWord = scanner.nextLine();
+            if (guessWord.equals(words3[index])){
+                System.out.println("bla bla bla");
+            }
 //            System.out.print("\n" + words3[index]);
 
         } else if (howManyLetters == 4) {
@@ -54,8 +60,26 @@ public class Guess_Word {
             System.out.println("\n" + Arrays.toString(chars));
         }
         System.out.print("\nGuess randed word: type a letter-> ");
+
         while (ok) {
             String guessWord = scanner.nextLine();
+            lives--;
+            if (words3[index].contains(guessWord)) {
+                System.out.println("You find a letter");
+                for (int i = 0; i < letters.length; i++) {
+                    if (words3[index].charAt(i) == guessWord.charAt(0)) {
+                        letters[i] = guessWord;
+                    }
+                }
+                System.out.println(Arrays.toString(letters));
+            } else {
+                System.out.println("You type incorrect letter. Try again...");
+            }
+            if (lives == 0) {
+                System.out.println("Game over! You are out of lives.");
+                ok = false;
+            }
+
             if (guessWord.equals(words3[index])) {
                 System.out.println("You find a letter");
             }
