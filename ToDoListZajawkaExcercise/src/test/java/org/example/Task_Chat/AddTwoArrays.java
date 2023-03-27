@@ -18,7 +18,6 @@ public class AddTwoArrays {
             numbers2[i] = scanner.nextInt();
         }
         for (int i = 0; i < numbers1.length; i++) {
-
             sumNumbers[i] = numbers1[i] + numbers2[i];
         }
         System.out.println(Arrays.toString(sumNumbers));
