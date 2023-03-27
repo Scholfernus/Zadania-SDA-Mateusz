@@ -92,45 +92,7 @@ public class Guess_Word {
 
             }
         }
-
-
-//            int[] guessingNumbers = new int[howManyLetters];
-//            for (int i = 0; i < guessingNumbers.length; i++) {
-//                guessingNumbers[i] = scanner.nextInt();
-//            }
-//            String[] results = new String[howManyLetters];
-//            for (int i = 0; i < howManyLetters; i++) {
-//                results[i] = checkNumber(i, guessingNumbers[i], letters);
-//            }
-//            System.out.printf(Arrays.toString(guessingNumbers) + "\n");
-//            lives--;
-//            System.out.println(Arrays.toString(results));
-//            if (isEnd(results) || lives==0) {
-//                System.out.println("The game is over");
-//                break;
-//            }
-//            System.out.printf("Pozostało Ci %d prób !!!\n", lives);     }
-//    }
-//    private static String checkNumber(int index, int given, int[] numbers) {
-//        for (int i = 0; i < numbers.length; i++) {
-//            if (given == numbers[i]) {
-//                if (i == index) {
-//                    return "HOT";
-//                } else {
-//                    return "WARM"; //jeśli jest dobry indeks
-//                }
-//            }
-//        }
-//        return "COLD"; //jeśli nic się nie zgadza
-//    }
-//    private static boolean isEnd(String[] results) {
-//        for (String result : results) {
-//            if (!result.equals("HOT")) { //warunek boolean
-//                return false;
-//            }
-//        }
-//
-//        return true;
+        System.out.println("You win. The game is over");
     }
 }
 

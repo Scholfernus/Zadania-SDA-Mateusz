@@ -13,7 +13,7 @@ public class Guess_Number_Chat {
     }
     public static void howManyNumbers() {
         int howMany;
-        boolean y = true;
+        boolean y = false;
         int lives = 5;
 
         Set<Integer> numbers = new HashSet<>();
@@ -28,7 +28,7 @@ public class Guess_Number_Chat {
 
         System.out.println(numbers);
 
-        while (y) {
+        while (!y) {
             System.out.print("Guess random numbers: -> ");
             int[] guessingNumbers = new int[howMany];
             for (int i = 0; i < guessingNumbers.length; i++) {
@@ -48,17 +48,16 @@ public class Guess_Number_Chat {
             System.out.printf("Pozostało Ci %d prób !!!\n", lives);
         }
     }
-    private static String checkNumber(int index, int given, int[] numbers) {
-        for (int i = 0; i < numbers.length; i++) {
-            if (given == numbers[i]) {
-                if (i == index) {
-                    return "HOT";
-                } else {
-                    return "WARM"; //jeśli jest dobry indeks
-                }
+    private static String checkNumber(int index, int given, Set<Integer> numbers) {
+        if (numbers.contains(given)) {
+            if (numbers.toArray()[index].equals(given)) {
+                return "HOT";
+            } else {
+                return "WARM";
             }
+        } else {
+            return "COLD";
         }
-        return "COLD"; //jeśli nic się nie zgadza
     }
     private static boolean isEnd(String[] results) {
         for (String result : results) {
@@ -66,7 +65,6 @@ public class Guess_Number_Chat {
                 return false;
             }
         }
-
         return true;
     }
     public static void invitation() {
